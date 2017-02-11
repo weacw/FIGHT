@@ -1,1 +1,4 @@
-sceneSetups: []
+sceneSetups:
+- path: Assets/FIGHt Project/Artwork/Scenes/Scanning screen.unity
+  isLoaded: 1
+  isActive: 1
