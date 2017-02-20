@@ -24,5 +24,5 @@ Fight是一款多人参与的、以步步为营、舍与取和分析判断能力
 * 防御	抵御玩家攻击一次(回合结束失效，携带身上)</br>
 
 
-![baidu](https://weacw.com/webset/wp-content/uploads/2017/02/weacw-webset-logo-e1486290856359.png,"we are creating world")
+![baidu](http://p1.bpimg.com/1949/ba2ce9d889539eab.png,"we are creating world")
 `© Copyright 2016 WEACW. All Rights Reserved.`
