@@ -4,7 +4,7 @@
 [Visual Studio 2015 Community](https://www.visualstudio.com/zh-hans/free-developer-offers/)</br>
 [Windows 10 64bit Pro](https://www.microsoft.com/zh-cn/software-download/windows10)</br>
 [Vuforia 6.2](https://developer.vuforia.com/downloads/sdk)</br>
-
+[Photon Server 3.x](https://www.photonengine.com/zh-CN/OnPremise/Download)</br>
 ###游戏简介</br>
 Fight是一款多人参与的、以步步为营、舍与取和分析判断能力的热血策略类游戏。需要`2-4`人参与。通过击杀敌对玩家来获取胜利。</br></br></br></br>
 
