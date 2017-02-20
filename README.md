@@ -1,7 +1,6 @@
 ## FIGHT </br>
-###美术资源请挪步至:</br>
-####-----------------使用要求</br>
-1.UNITY3D version 5.5.0 f3</br>
-使用Visual Studio 2015</br>
-Windows 10 专业版</br>
+####-----------------Use requirement</br>
+UNITY3D version 5.4.2 f2 Personal or Pro</br>
+Visual Studio 2015 Community</br>
+Windows 10 64bit Pro</br>
 Vuforia 6.3</br>
