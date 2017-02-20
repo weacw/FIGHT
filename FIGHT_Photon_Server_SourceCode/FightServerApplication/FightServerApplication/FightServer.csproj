@@ -66,8 +66,8 @@
   <ItemGroup>
     <Compile Include="FightUnityClientPeer.cs" />
     <Compile Include="FightServer.cs" />
-    <Compile Include="Operations\BaseOperation.cs" />
-    <Compile Include="Operations\Login.cs" />
+    <Compile Include="Handler\BattleHandler.cs" />
+    <Compile Include="Handler\HandlerBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

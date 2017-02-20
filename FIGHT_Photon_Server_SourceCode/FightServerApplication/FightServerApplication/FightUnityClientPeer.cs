@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ExitGames.Logging;
-using Fight.Operations;
-using FightServer.Common;
+﻿using ExitGames.Logging;
 using Photon.SocketServer;
 using PhotonHostRuntimeInterfaces;
 
@@ -19,9 +12,12 @@ namespace Fight
 	* 作 者： NSWell-weacw
 	* Copyright (c) weacw. All rights reserved.
 	*/
-    class FightUnityClientPeer:PeerBase
+    public class FightUnityClientPeer:PeerBase
     {
         private static readonly ILogger Log = LogManager.GetCurrentClassLogger();
+
+        public int roleID;
+
         /// <summary>
         /// 初始化fight client peer
         /// </summary>
@@ -38,19 +34,7 @@ namespace Fight
         /// <param name="sendParameters">发送数据</param>
         protected override void OnOperationRequest(OperationRequest operationRequest, SendParameters sendParameters)
         {
-            switch (operationRequest.OperationCode)
-            {
-                case (byte)OperationCode.Login:
-                    var loginRequest = new Login(Protocol,operationRequest);
-                    if (!loginRequest.IsValid)
-                    {
-                        SendOperationResponse(loginRequest.GetResponse(ErrorCode.InvalidParameters), sendParameters);
-                        return;
-                    }
-                    string charName = loginRequest.CharacterName;
-                    Log.Info("User with name :" + charName);
-                    break;
-            }
+          
         }
 
         /// <summary>

@@ -1,6 +1,10 @@
-﻿using System.IO;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Reflection;
 using ExitGames.Logging;
 using ExitGames.Logging.Log4Net;
+using Fight.Handler;
 using log4net;
 using log4net.Config;
 using Photon.SocketServer;
@@ -21,7 +25,34 @@ namespace Fight
 
         //Fight Server 后台 log
         private static readonly ILogger Log = LogManager.GetCurrentClassLogger();
+        public List<FightUnityClientPeer> fightUnityClientPeers = new List<FightUnityClientPeer>();
 
+        public Dictionary<byte,HandlerBase>  handlers = new Dictionary<byte, HandlerBase>();
+        private static FightServer Instance { get;  set; }
+
+        public FightServer()
+        {
+            Instance = this;
+            RegisteHandler();
+        }
+        public static FightServer GetFightServer()
+        {
+            return Instance;
+        }
+
+
+
+
+
+        private void RegisteHandler()
+        {
+            Type[] types = Assembly.GetAssembly(typeof (HandlerBase)).GetTypes();
+            foreach (Type type in types)
+            {
+                if (type.FullName.EndsWith("Handler"))
+                    Activator.CreateInstance(type);
+            }
+        }
 
 
         /// <summary>

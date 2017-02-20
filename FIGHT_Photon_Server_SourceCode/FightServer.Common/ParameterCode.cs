@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace FightServer.Common
+﻿namespace FightServer.Common
 {
     /**
 	*
@@ -15,6 +10,18 @@ namespace FightServer.Common
 	*/
     public enum ParameterCode:byte
     {
-        CharacterName
+        RoleID,
+
+        SubOperationCode,
+        OperationCode,
+        CharacterName,
+
+        //--Vector3         
+        Position,
+
+        //--EulerAngle
+        EulerAngle,
+
+
     }
 }
