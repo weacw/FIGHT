@@ -26,29 +26,29 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1000011016210802
+--- !u!1 &1000014045103400
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 4000011876546958}
-  - 33: {fileID: 33000012029347698}
-  - 23: {fileID: 23000012612104690}
+  - 4: {fileID: 4000010972947198}
+  - 33: {fileID: 33000013793241976}
+  - 23: {fileID: 23000010135374554}
   m_Layer: 0
   m_Name: MeshBaker-mesh-mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!4 &4000011876546958
+--- !u!4 &4000010972947198
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011016210802}
+  m_GameObject: {fileID: 1000014045103400}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 228.63898, y: -97.981155, z: -165.16318}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -67,15 +67,15 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 4000011876546958}
+  - {fileID: 4000010972947198}
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!23 &23000012612104690
+--- !u!23 &23000010135374554
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011016210802}
+  m_GameObject: {fileID: 1000014045103400}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -99,10 +99,10 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!33 &33000012029347698
+--- !u!33 &33000013793241976
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011016210802}
+  m_GameObject: {fileID: 1000014045103400}
   m_Mesh: {fileID: 4300000, guid: e81855146043bc04fbc2451e4f371e70, type: 2}
