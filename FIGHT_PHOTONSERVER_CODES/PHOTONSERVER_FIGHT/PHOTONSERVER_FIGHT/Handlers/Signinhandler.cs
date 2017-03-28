@@ -41,7 +41,7 @@ namespace PHOTONSERVER_FIGHT.Handlers
 
             //添加当前登入的客户端到服务器用户标内
             FIGHTserverapplication.Getfightserverapplication().clientpeers.Add(playername,_peer);
-            log.Info("Character name: "+playername+ " is Successful login");
+            log.Info("Character name: "+playername+ " is Successful signin");
 
             //创建用户数据
             Playerdata playerdata = new Playerdata();

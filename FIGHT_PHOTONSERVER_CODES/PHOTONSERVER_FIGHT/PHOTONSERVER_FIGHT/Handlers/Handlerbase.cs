@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ExitGames.Logging;
+﻿using ExitGames.Logging;
 using FightServer.Common;
 using Photon.SocketServer;
 using PHOTONSERVER_FIGHT.ApplicationBaseClass;
@@ -27,7 +22,6 @@ namespace PHOTONSERVER_FIGHT.Handlers
 
         public Handlerbase()
         {
-            log.Info("11111" + Opcode.ToString());
             FIGHTserverapplication.Getfightserverapplication().handlers.Add((byte)Opcode, this);
             log.Info("Handler: " + GetType().Name + " is registered");
         }

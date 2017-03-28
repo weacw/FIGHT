@@ -41,7 +41,7 @@ namespace PHOTONSERVER_FIGHT.ApplicationBaseClass
         {
             defaultdata = new Defaultdata();
             defaultdata.defaultid = this.GetHashCode().ToString();
-            defaultdata.defaultname = "connected use|"+_unmanagedPeer.GetRemoteIP()+" ";
+            defaultdata.defaultname = "connected use|" + _unmanagedPeer.GetRemoteIP() + " ";
         }
 
         protected override void OnOperationRequest(OperationRequest _operationrequest, SendParameters _sendparameters)
@@ -55,6 +55,7 @@ namespace PHOTONSERVER_FIGHT.ApplicationBaseClass
             if (handler != null)
             {
                 handler.OnHandlerMessage(_operationrequest, response, this, _sendparameters);
+                SendOperationResponse(response, _sendparameters);
             }
             else
             {
@@ -66,12 +67,34 @@ namespace PHOTONSERVER_FIGHT.ApplicationBaseClass
         {
             if (!isjoinedroom)
             {
-                log.Info(_reasoncode+":"+_reasoncode+"|"+ defaultdata.defaultid+"-"+ defaultdata.defaultname+"has been disconnected.");
+                if (playerdata == null)
+                {
+                    log.Info(_reasoncode + ":" + _reasoncode + "|" + defaultdata.defaultid + "-" + defaultdata.defaultname + "has been disconnected.");
+                    //释放默认信息
+                    defaultdata.defaultid = null;
+                    defaultdata.defaultname = null;
+                    defaultdata = null;
+                    return;
+                }
+
+                log.Info(_reasoncode + ":" + _reasoncode + "|" + playerdata.playerid + "-" + playerdata.playername + "has been disconnected.");
+                if (FIGHTserverapplication.Getfightserverapplication().clientpeers.ContainsKey(playerdata.playername))
+                    FIGHTserverapplication.Getfightserverapplication().clientpeers.Remove(playerdata.playername);
+
+
+                //释放玩家信息
+                playerdata.playername = null;
+                playerdata.playerid = 0;
+                playerdata = null;
+
+                //释放默认信息
                 defaultdata.defaultid = null;
                 defaultdata.defaultname = null;
                 defaultdata = null;
                 return;
             }
+
+
             joinedroom.Exitintheroom(this);
             if (FIGHTserverapplication.Getfightserverapplication().clientpeers.ContainsKey(playerdata.playername))
                 FIGHTserverapplication.Getfightserverapplication().clientpeers.Remove(playerdata.playername);

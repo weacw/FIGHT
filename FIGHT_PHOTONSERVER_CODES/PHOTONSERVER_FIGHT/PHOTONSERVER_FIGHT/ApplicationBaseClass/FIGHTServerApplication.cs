@@ -15,39 +15,35 @@ using PHOTONSERVER_FIGHT.Handlers;
 
 namespace PHOTONSERVER_FIGHT
 {
-    public class FIGHTserverapplication:ApplicationBase
+    public class FIGHTserverapplication : ApplicationBase
     {
-        public Dictionary<byte,Handlerbase> handlers = new Dictionary<byte, Handlerbase>(); 
-        public Dictionary<string,Clientpeer>  clientpeers = new Dictionary<string, Clientpeer>();
-        public Dictionary<int,Room> rooms = new Dictionary<int, Room>();
+        public Dictionary<byte, Handlerbase> handlers = new Dictionary<byte, Handlerbase>();
+        public Dictionary<string, Clientpeer> clientpeers = new Dictionary<string, Clientpeer>();
+        public Dictionary<int, Room> rooms = new Dictionary<int, Room>();
 
         private static readonly ILogger log = ExitGames.Logging.LogManager.GetCurrentClassLogger();
-        private  static FIGHTserverapplication instance { get; set; }
+        private static FIGHTserverapplication instance { get; set; }
 
         public FIGHTserverapplication()
         {
             instance = this;
-            Registerhandler();
+            
         }
 
         public static FIGHTserverapplication Getfightserverapplication()
         {
-            return instance;            
+            return instance;
         }
 
 
 
         private void Registerhandler()
         {
-            Type[] types = Assembly.GetAssembly(typeof (Handlerbase)).GetTypes();
-            log.Info("Register handler");
-            log.Debug(types.Length);
-            log.Info(types[0].Name);
+            Type[] types = Assembly.GetAssembly(typeof(Handlerbase)).GetTypes();
             foreach (Type type in types)
             {
                 if (type.FullName.EndsWith("handler"))
                     Activator.CreateInstance(type);
-                log.Info(type.ToString());
             }
         }
 
@@ -64,7 +60,7 @@ namespace PHOTONSERVER_FIGHT
         protected override PeerBase CreatePeer(InitRequest _initRequest)
         {
             log.Info("Client peer has been created!");
-            Clientpeer peer = new Clientpeer(_initRequest.Protocol,_initRequest.PhotonPeer);
+            Clientpeer peer = new Clientpeer(_initRequest.Protocol, _initRequest.PhotonPeer);
             return peer;
         }
 
@@ -74,13 +70,16 @@ namespace PHOTONSERVER_FIGHT
             GlobalContext.Properties["Photon:ApplicationLogPath"] = Path.Combine(this.ApplicationRootPath, "log");
             GlobalContext.Properties["LogFileName"] = this.ApplicationName;
             XmlConfigurator.ConfigureAndWatch(new FileInfo(Path.Combine(this.BinaryPath, "log4net.config")));
-            log.Debug("Application setup complete.");
+            string serverlog = string.Format("\n\ndata {0} \n-----------\n", System.DateTime.Now);
+            log.Info(serverlog + "Application setup complete.");
+
+            Registerhandler();
         }
 
         protected override void TearDown()
         {
-            log.Debug("Client peer has been created!");
-            log.Info("fight server application tear down");
+            string serverlog = string.Format("\ndata{0} \n-----------\n", System.DateTime.Now);
+            log.Info(serverlog + "fight server application tear down");
         }
     }
 }
