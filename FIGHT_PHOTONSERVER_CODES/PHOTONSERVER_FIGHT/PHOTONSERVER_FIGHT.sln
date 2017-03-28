@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PHOTONSERVER_FIGHT", "PHOTONSERVER_FIGHT\PHOTONSERVER_FIGHT.csproj", "{2D95A290-6CD6-4916-A12F-B8DC9122D42F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FightServer.Common", "..\FightServer.Common\FightServer.Common.csproj", "{894AED8A-F9CD-4386-BCE0-63D6C45BC020}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FIGHT_Unity_Client_SourceCode", "..\..\..\Unity\Fight\FIGHT_Unity_Client_SourceCode\FIGHT_Unity_Client_SourceCode.csproj", "{C8ED2B42-0A5A-1EA0-0DE9-3E4BBB87F4E9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2D95A290-6CD6-4916-A12F-B8DC9122D42F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D95A290-6CD6-4916-A12F-B8DC9122D42F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D95A290-6CD6-4916-A12F-B8DC9122D42F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D95A290-6CD6-4916-A12F-B8DC9122D42F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{894AED8A-F9CD-4386-BCE0-63D6C45BC020}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{894AED8A-F9CD-4386-BCE0-63D6C45BC020}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{894AED8A-F9CD-4386-BCE0-63D6C45BC020}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{894AED8A-F9CD-4386-BCE0-63D6C45BC020}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8ED2B42-0A5A-1EA0-0DE9-3E4BBB87F4E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8ED2B42-0A5A-1EA0-0DE9-3E4BBB87F4E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8ED2B42-0A5A-1EA0-0DE9-3E4BBB87F4E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8ED2B42-0A5A-1EA0-0DE9-3E4BBB87F4E9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
