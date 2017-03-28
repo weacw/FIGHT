@@ -73,12 +73,12 @@ namespace WEACW
         }
 
 
-        public void Registercontrller(OperationCode _opcode, Controllerbase _controllerbase)
+        public void Registercontrller(Operationcode _opcode, Controllerbase _controllerbase)
         {
             controllerbases.Add((byte)_opcode,_controllerbase);
         }
 
-        public void Unregistercontroller(OperationCode _operationcode)
+        public void Unregistercontroller(Operationcode _operationcode)
         {
             controllerbases.Remove((byte) _operationcode);
         }

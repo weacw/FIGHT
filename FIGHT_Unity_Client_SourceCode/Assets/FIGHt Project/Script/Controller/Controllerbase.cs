@@ -16,7 +16,7 @@ namespace WEACW
 	*/
     public abstract class Controllerbase : MonoBehaviour
     {
-        public abstract OperationCode Opcode { get; }
+        public abstract Operationcode Opcode { get; }
 
         public virtual void Start()
         {
