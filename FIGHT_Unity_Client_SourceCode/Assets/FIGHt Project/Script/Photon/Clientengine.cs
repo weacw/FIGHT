@@ -102,7 +102,16 @@ namespace WEACW
 
         public void OnOperationResponse(OperationResponse _operationResponse)
         {
-            Debug.Log(_operationResponse.ReturnCode);
+            Controllerbase controller;
+            controllerbases.TryGetValue(_operationResponse.OperationCode, out controller);
+            if(controller != null)
+            {
+                controller.OnOperationresponse(_operationResponse);
+            }
+            else
+            {
+                Debug.LogWarning("Receive a unknown response . OperationCode :" + _operationResponse.OperationCode);
+            }
         }
 
         public void OnStatusChanged(StatusCode _statusCode)
