@@ -1,19 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using FightServer.Common;
-using FightServer.Common.Tools;
-using LitJson;
-using Photon.SocketServer;
-using PHOTONSERVER_FIGHT.ApplicationBaseClass;
-using PHOTONSERVER_FIGHT.Units;
+﻿
 
 namespace PHOTONSERVER_FIGHT.Handlers
 {
+    using System.Collections.Generic;
+    using FightServer.Common;
+    using FightServer.Common.Tools;
+    using LitJson;
+    using Photon.SocketServer;
+    using ApplicationBaseClass;
+    using Units;
     /**
-	*
 	* 功 能： 接受客户端关于房间操作的请求(创建房间、加入房间、离开房间、获取房间列表)
 	* 类 名： Roomooperationhandler	
 	* Email:  paris3@163.com
@@ -22,12 +18,17 @@ namespace PHOTONSERVER_FIGHT.Handlers
 	*/
     public class Roomooperationhandler : Handlerbase
     {
+        #region 全局变量区域
         public override Operationcode Opcode => Operationcode.ROOMOP;
+        #endregion
 
-
-
-
-
+        /// <summary>
+        /// 用于响应客户端提供的操作
+        /// </summary>
+        /// <param name="_request"></param>
+        /// <param name="_response"></param>
+        /// <param name="_peer"></param>
+        /// <param name="_sendparameters"></param>
         public override void OnHandlerMessage(OperationRequest _request, OperationResponse _response, Clientpeer _peer,
             SendParameters _sendparameters)
         {
@@ -134,8 +135,7 @@ namespace PHOTONSERVER_FIGHT.Handlers
             object roomobject;
             _request.Parameters.TryGetValue((byte)Parametercode.ROOMPARMETERS, out roomobject);
             if (roomobject == null) return;
-            Roomdata roomdata = JsonMapper.ToObject<Roomdata>(roomobject.ToString());
-
+            Roomdata roomdata = JsonMapper.ToObject<Roomdata>(roomobject.ToString());            
         }
     }
 }

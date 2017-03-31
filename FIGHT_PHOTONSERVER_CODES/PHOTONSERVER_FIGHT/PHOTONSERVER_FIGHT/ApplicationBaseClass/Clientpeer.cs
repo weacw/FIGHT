@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ExitGames.Logging;
-using Photon.SocketServer;
-using PhotonHostRuntimeInterfaces;
-using PHOTONSERVER_FIGHT.Handlers;
-using PHOTONSERVER_FIGHT.Units;
-
-namespace PHOTONSERVER_FIGHT.ApplicationBaseClass
+﻿namespace PHOTONSERVER_FIGHT.ApplicationBaseClass
 {
+    using System.Collections.Generic;
+    using ExitGames.Logging;
+    using Photon.SocketServer;
+    using PhotonHostRuntimeInterfaces;
+    using Handlers;
+    using Units;
     /**
 	*
 	* 功 能： N/A
@@ -22,7 +17,7 @@ namespace PHOTONSERVER_FIGHT.ApplicationBaseClass
 
     public class Clientpeer : PeerBase
     {
-
+        #region 全局变量区域
         private static readonly ILogger log = LogManager.GetCurrentClassLogger();
         public Playerdata playerdata;
         public bool isjoinedroom = false;
@@ -35,6 +30,7 @@ namespace PHOTONSERVER_FIGHT.ApplicationBaseClass
             public string defaultname;
             public string defaultid;
         }
+        #endregion
 
 
         public Clientpeer(IRpcProtocol _protocol, IPhotonPeer _unmanagedPeer) : base(_protocol, _unmanagedPeer)
