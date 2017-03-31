@@ -1,12 +1,11 @@
-﻿using System.Collections.Generic;
-using ExitGames.Client.Photon;
-using FightServer.Common;
+﻿
 
 namespace WEACW
 {
     using UnityEngine;
-    using System.Collections;
-
+    using System.Collections.Generic;
+    using ExitGames.Client.Photon;
+    using FightServer.Common;
 
     /*
 	* 功 能： N/A
