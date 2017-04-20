@@ -22,10 +22,11 @@ namespace WEACW
 
         private static Clientengine instance;
 
-
+        internal event Globaldelegate.Onconnected onconnectedevent;
+        internal event Globaldelegate.Onconnecting onconnectingevent;
 
         public string ip = "localhost";
-        public string port = "5055";
+        public string port = "4530";
         public string servername = "FIGHTserverapplication";
         public static Clientengine Getclientengine
         {
@@ -43,6 +44,9 @@ namespace WEACW
 
             clientpeer = new PhotonPeer(this, ConnectionProtocol.Tcp);
             Debug.Log(clientpeer.Connect(ip + ":" + port, servername));
+
+            
+            if(null!=onconnectingevent) onconnectingevent.Invoke();
         }
 
         private void Update()
@@ -120,6 +124,8 @@ namespace WEACW
             {
                 case StatusCode.Connect:
                     isconnect = true;
+                    if(onconnectedevent!=null)
+                        onconnectedevent.Invoke();
                     break;
                 case StatusCode.Disconnect:
                     break;

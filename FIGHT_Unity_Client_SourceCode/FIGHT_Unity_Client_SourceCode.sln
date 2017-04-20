@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2015
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FIGHT_Unity_Client_SourceCode", "FIGHT_Unity_Client_SourceCode.csproj", "{C8ED2B42-0A5A-1EA0-0DE9-3E4BBB87F4E9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FIGHT_Unity_Client_SourceCode.Editor", "FIGHT_Unity_Client_SourceCode.Editor.csproj", "{C2FD636B-FC1A-EBFD-9620-E95E2EA0FA46}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{C8ED2B42-0A5A-1EA0-0DE9-3E4BBB87F4E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C8ED2B42-0A5A-1EA0-0DE9-3E4BBB87F4E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C8ED2B42-0A5A-1EA0-0DE9-3E4BBB87F4E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2FD636B-FC1A-EBFD-9620-E95E2EA0FA46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2FD636B-FC1A-EBFD-9620-E95E2EA0FA46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2FD636B-FC1A-EBFD-9620-E95E2EA0FA46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2FD636B-FC1A-EBFD-9620-E95E2EA0FA46}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

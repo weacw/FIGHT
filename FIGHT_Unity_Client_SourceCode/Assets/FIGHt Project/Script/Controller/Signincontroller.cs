@@ -1,5 +1,7 @@
 ﻿
 
+using FightServer.Common.Tools;
+
 namespace WEACW
 {
     using UnityEngine;
@@ -16,35 +18,34 @@ namespace WEACW
 	*/
     public class Signincontroller : Controllerbase
     {
-
-        public UnityEngine.UI.InputField characterfield;
-        public UnityEngine.UI.Button siginbutton;
+        public Globaldelegate.Signinfailed signinfailed;
+        public Globaldelegate.Signinsuccess signinsuccess;
 
         public override Operationcode Opcode
         {
             get { return Operationcode.SIGNIN; }
         }
 
-        public void Triggersigin()
-        {
-            Signin(characterfield.text);
-        }
         public void Signin(string _charactername)
         {
-            Dictionary<byte,object> parameter = new Dictionary<byte, object>();
-            parameter.Add((byte)Parametercode.CHARACTERNAME,_charactername);
-            Clientengine.Getclientengine.SendRequest((byte)Operationcode.SIGNIN,parameter);
+            Dictionary<byte, object> parameter = new Dictionary<byte, object>();
+            parameter.Add((byte)Parametercode.CHARACTERNAME, _charactername);
+            Clientengine.Getclientengine.SendRequest((byte)Operationcode.SIGNIN, parameter);
         }
 
         public override void OnOperationresponse(OperationResponse _response)
         {
+            string tipcontents = null;
             switch (_response.ReturnCode)
             {
-                case (short)Returncode.CHARACTERNAMEISEXIST:
+                case (short) Returncode.CHARACTERNAMEISEXIST:
                     Debug.Log("角色名称已存在");
+                    tipcontents = string.Format("{0}已存在您无法使用！请更换您的角色昵称", "提示：");
+                    if (signinfailed != null) signinfailed.Invoke(tipcontents);
                     break;
-                case (short)Returncode.CHARACTERCREATED:
+                case (short) Returncode.CHARACTERCREATED:
                     Debug.Log("角色名称注册成功");
+                    if (signinsuccess != null) signinsuccess.Invoke();
                     break;
             }
         }
