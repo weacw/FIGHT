@@ -19,7 +19,7 @@ namespace WEACW
         public Vector3 targetpos;
         private Vector3 orginalpos;
 
-
+        protected Tweener tweener;
         protected override void Awake()
         {
             //Get the necessary variables
@@ -42,6 +42,11 @@ namespace WEACW
 
             //Init window 
             base.Initwindow();
+        }
+
+        public override void Buttoneventbind()
+        {
+            
         }
 
         public override void Onwindowdisplay()
@@ -67,23 +72,36 @@ namespace WEACW
 
         protected override void Display()
         {
+            if (tweener != null)
+            {
+                tweener.Kill(true);
+                tweener = null;
+            }
+
             self.gameObject.SetActive(true);
-            Tweener tner = self.DOAnchorPos3D(targetpos, duration);
-            tner.SetEase(displaycurve);
+            tweener = self.DOAnchorPos3D(targetpos, duration);
+            tweener.SetEase(displaycurve);
             self.DOScale(targetscale, duration);
             canvasgroup.DOFade(1, duration);
         }
 
         protected override void Hide()
         {
+            if (tweener != null)
+            {
+                tweener.Kill(true);
+                tweener = null;
+            }
+
+
             canvasgroup.DOFade(0, duration);
-            Tweener tn = self.DOAnchorPos3D(orginalpos, duration);
-            tn.SetEase(hidecurve);
+            tweener = self.DOAnchorPos3D(orginalpos, duration);
+            tweener.SetEase(hidecurve);
             self.DOScale(orginalscale, duration);
-            tn.OnComplete(() =>
+            tweener.OnComplete(() =>
             {
                 self.gameObject.SetActive(false);
-                tn.Kill(true);
+                tweener.Kill(true);
             });
         }
     }

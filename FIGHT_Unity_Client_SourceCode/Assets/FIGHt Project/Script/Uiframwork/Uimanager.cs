@@ -16,10 +16,13 @@
         public Connectserverview connectview;
         public Signinview signinview;
         public Tipsview tipsview;
-        public Fixedwindow fixedwindow;
+        public Homeview homeview;
+        public Roomview roomview;
 
-        private Clientengine client;
 
+
+        internal Clientengine client;
+        internal Signincontroller signin;
         private void Awake()
         {
             Connect();
@@ -36,15 +39,28 @@
 
         private void Signin()
         {
-            Signincontroller signin = FindObjectOfType<Signincontroller>();
+            signin = FindObjectOfType<Signincontroller>();
             signin.signinfailed += tipsview.Settipstring;
-            signin.signinsuccess += fixedwindow.Onwindowdisplay;
+            signin.signinsuccess += homeview.Onwindowdisplay;
+            signin.signinsuccess += signinview.Onwindowhide;
         }
 
 
         void OnDisable()
         {
-            
+            if (signin != null)
+            {
+                signin.signinfailed -= tipsview.Settipstring;
+                signin.signinsuccess -= homeview.Onwindowdisplay;
+                signin.signinsuccess -= signinview.Onwindowhide;
+            }
+
+            if (client != null)
+            {
+                client.onconnectingevent -= connectview.Onwindowdisplay;
+                client.onconnectedevent -= connectview.Onwindowhide;
+                client.onconnectedevent -= signinview.Onwindowdisplay;
+            }
         }
     }
 }

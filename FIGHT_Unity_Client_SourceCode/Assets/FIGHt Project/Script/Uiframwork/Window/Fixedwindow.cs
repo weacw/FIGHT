@@ -37,6 +37,11 @@ namespace WEACW
             base.OnDestroy();
         }
 
+        public override void Buttoneventbind()
+        {
+            
+        }
+
         public override void Onwindowdisplay()
         {
             Display();

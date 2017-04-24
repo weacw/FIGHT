@@ -43,6 +43,10 @@ namespace WEACW
         [Range(0, 1)]
         public float duration = 0.5f;
 
+
+        public abstract void Buttoneventbind();
+
+
         public virtual void Onwindowdisplay()
         {
             if (!isinited) Awake();
@@ -52,6 +56,7 @@ namespace WEACW
 
         protected virtual void Awake()
         {
+            Buttoneventbind();
             self = GetComponent<RectTransform>();
             rootcanvas = self.root.gameObject;
             canvasgroup = GetComponent<CanvasGroup>();

@@ -114,6 +114,8 @@
     <Compile Include="Assets\FIGHt Project\Script\Uiframwork\Uiglobalenum.cs" />
     <Compile Include="Assets\FIGHt Project\Script\Uiframwork\Uimanager.cs" />
     <Compile Include="Assets\FIGHt Project\Script\Uiframwork\View\Connectserverview.cs" />
+    <Compile Include="Assets\FIGHt Project\Script\Uiframwork\View\Homeview.cs" />
+    <Compile Include="Assets\FIGHt Project\Script\Uiframwork\View\Roomview.cs" />
     <Compile Include="Assets\FIGHt Project\Script\Uiframwork\View\Signinview.cs" />
     <Compile Include="Assets\FIGHt Project\Script\Uiframwork\View\Tipsview.cs" />
     <Compile Include="Assets\FIGHt Project\Script\Uiframwork\Window\Basewindow.cs" />

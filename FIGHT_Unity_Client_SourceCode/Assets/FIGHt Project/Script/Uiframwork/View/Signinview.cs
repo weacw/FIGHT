@@ -15,8 +15,8 @@ namespace WEACW
 	*/
     public class Signinview : Fixedwindow
     {
-        private Signincontroller signincontroller;
         public InputField usernameinputfield;
+        public Button signinbtn;
 
         protected override void Awake()
         {
@@ -46,6 +46,15 @@ namespace WEACW
         public string Getusername()
         {
             return usernameinputfield.text;
+        }
+
+        public override void Buttoneventbind()
+        {
+            base.Buttoneventbind();            
+            signinbtn.onClick.AddListener(() =>
+            {
+                Uimanager.Getintance.signin.Signin(Getusername());
+            });
         }
     }
 }
